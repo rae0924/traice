@@ -4,5 +4,5 @@ from detector import views as detector_views
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('detector', detector_views.detector, name='detector')
+    path('detector/', detector_views.detector, name='detector')
 ]
