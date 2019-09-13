@@ -34,7 +34,13 @@ nav ul li a{
     margin: 0 auto;
     margin-top: 75px;
     background: #ffffff;
-    width: 40%;
-    height: 500px;
+    max-width: 1000px;
     border-radius: 20px;
+}
+.canvas{
+    width: 250px;
+    height: 250px;
+    border-radius: 20px;
+    border: 2px solid #00d0f0;
+    margin: 50px 75px;
 }
