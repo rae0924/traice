@@ -1,12 +1,5 @@
 body {
-<<<<<<< HEAD
-    background: transparent;
-}
-nav{
-    
-}
-=======
-    background: #00d0f0;
+    background: 00d0f0;
 }
 .navigation-bar{
     float: right;
@@ -30,4 +23,4 @@ nav ul li a{
     text-align: center;
     color: #ffffff;
 }
->>>>>>> 6a3053dddaf204d153b5648acd25177a7a8b7f9f
+
