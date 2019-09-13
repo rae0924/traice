@@ -1,6 +1,33 @@
 body {
+<<<<<<< HEAD
     background: transparent;
 }
 nav{
     
 }
+=======
+    background: #00d0f0;
+}
+.navigation-bar{
+    float: right;
+    background: transparent;
+}
+nav{
+    float: right;
+}
+nav ul{
+    background-color: transparent;
+}
+nav ul li{
+    list-style: none;
+    display: inline-block;
+}
+nav ul li a{
+    display: block;
+    text-decoration: none;
+    padding: 20px 20px;
+    font-family: 'Gayathri', sans-serif;
+    text-align: center;
+    color: #ffffff;
+}
+>>>>>>> 6a3053dddaf204d153b5648acd25177a7a8b7f9f
