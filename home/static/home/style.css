@@ -35,10 +35,71 @@ nav ul li a{
     margin-top: 75px;
     background: #ffffff;
     max-width: 1000px;
+    min-width: 900px;
     border-radius: 20px;
+    height: fit-content;
+    min-height: 500px;
+    height: 75%;
+}       
+.user-input{
+    width: 50%;
+    height: fit-content;
+    float: left;
+}
+.detector-output{
+    width: 50%;
+    float: left;
+}
+.description{
+    float: right;
+    width: 50%;
+}
+.title{
+    font-family: 'Gayathri', sans-serif;
+    font-size: 24px;
+    text-align: center;
+    color: #00d0f0;
 }
 .canvas{
     border-radius: 20px;
     border: 2px solid #00d0f0;
-    margin: 50px 75px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.button-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.button{
+    text-decoration: none;
+    background-color: #ffffff;
+    text-align: center;
+    font-size: 16px;
+    color: #00d0f0;
+    padding: 20px 25px;
+    width: 150px;
+    text-decoration: none;
+    border: 2px solid #00d0f0;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 0 5px;
+}
+.image-wrapper{
+    border-radius: 20px;
+    border: 2px solid #00d0f0;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    height: fit-content;
+    width: fit-content;
+}
+.sample-image{
+    width: 300px;
+    height: 300px;
 }

@@ -1,8 +1,10 @@
 from django.urls import path
 from . import views
-from detector import views as detector_views
+from detector.views import DetectorView
+from submission.views import SubmissionView
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('detector/', detector_views.detector, name='detector')
+    path('detector/', DetectorView.as_view(), name='detector'),
+    path('submission/', SubmissionView.as_view(), name='submission')
 ]
