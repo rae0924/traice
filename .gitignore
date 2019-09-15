@@ -1,1 +1,1 @@
-./media/samples/*.png
+/media/samples/**/*.png
