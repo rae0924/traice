@@ -22,10 +22,17 @@ window.addEventListener("load", () => {
         context.lineWidth = 10;
         context.lineCap = "round";
         context.strokeStyle = "black"
-        context.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+
+        var rect = canvas.getBoundingClientRect(); 
+        x = (e.clientX - rect.left) / (rect.right - rect.left) * canvas.width;
+        y = (e.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height;
+
+        // context.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+        context.lineTo(x, y);
         context.stroke();
         context.beginPath();
-        context.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+        context.moveTo(x, y);
+        // context.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
     }
 
     canvas.addEventListener("mousedown", startPosition);
