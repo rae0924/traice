@@ -19,7 +19,7 @@ window.addEventListener("load", () => {
 
     function draw(e){
         if(!painting) return;
-        context.lineWidth = 10;
+        context.lineWidth = 20;
         context.lineCap = "round";
         context.strokeStyle = "black"
 
