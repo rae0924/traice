@@ -14,8 +14,8 @@ function detect() {
 }
 function submit_sample(){
     const dataurl = document.querySelector(".canvas").toDataURL();
-    const firstname = document.getElementById("firstname").value;
-    const lastname = document.getElementById("lastname").value;
+    const first_name = document.getElementById("first_name").value;
+    const last_name = document.getElementById("last_name").value;
     const email = document.getElementById("email").value;
     const digit = document.getElementById("digit").value;
     const form = document.querySelector(".post-form");
@@ -28,8 +28,8 @@ function submit_sample(){
 
     var data = {
         "dataurl": dataurl,
-        "firstname": firstname,
-        "lastname": lastname,
+        "first_name": first_name,
+        "last_name": last_name,
         "email": email,
         "digit": digit
     };

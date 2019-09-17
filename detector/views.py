@@ -19,7 +19,7 @@ class DetectorView(TemplateView):
         _, data = dataURL.split(",", 1)
         binary_data = a2b_base64(data)
         default_path = 'media/samples/'
-        sample = Sample(first_name='', last_name='')
+        sample = Sample()
         sample.save()
         img_name = str(sample.pk) + '.png'
         img_path = os.path.join(default_path, img_name)
