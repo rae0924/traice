@@ -3,15 +3,44 @@
 {% block content %}
     <div class="container">
         <div class="user-input">
-            <h3 class="title">User Input</h3>
+            <h3 class="title">Subject Input</h3>
             <canvas class="canvas"></canvas>
             <div class="button-wrapper">
                 <button class="button" type="button" onclick="submit_sample()">Submit</button>
+                <button class="button" type="button" onclick="clear_canvas()">Clear</button>
             </div>
             <form class="post-form">{% csrf_token %}</form>
         </div>
         <div class="description">
-            <h3 class="title">Sample Information</h3>
+            <h3 class="title">Fill Information</h3>
+            <div class="input-wrapper">
+                <label for="lastname" class="labels-input">First Name: </label>
+                <input type="text" name="firstname" id="firstname" class="subject-input">
+            </div>
+            <div class="input-wrapper">
+                <label for="lastname" class="labels-input">Last Name: </label>
+                <input type="text" name="lastname" id="lastname" class="subject-input">
+            </div>
+            <div class="input-wrapper">
+                <label for="email" class="labels-input">Email: </label>
+                <input type="text" name="email" id="email" class="subject-input">
+            </div>
+            <div class="input-wrapper">
+                <label for="digit" class="labels-input">Digit: </label>
+                <select name="digit" id="digit" class="subject-input">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                </select>
+            </div>
+            
         </div>
     </div>
 {% endblock content %}

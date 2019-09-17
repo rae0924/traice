@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
+from submission.models import Sample
 import json
 
 
@@ -12,8 +13,6 @@ class SubmissionView(TemplateView):
         return render(request, self.template_name)
         
     def post(self, request):
-        print("hello")
-        data = request.POST['data']
-        data = json.load(data)
-        print(data)
+        data = json.loads(request.POST['data'])
+        _, data['dataurl'] = data['dataurl'].split(",", 1)
         return render(request, self.template_name)
