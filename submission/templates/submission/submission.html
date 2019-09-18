@@ -1,6 +1,24 @@
 {% extends "home/base.html" %}
 {% load static %}
 {% block content %}
+    {% if data.has_empty_field %}
+        <div class="empty-field-error">
+            <p class="notice">Error: The canvas and/or one or more fields were found to be empty.
+                Please fill in the canvas and/or the missing fields then submit once again.
+            </p>
+        </div>
+    {% if data.is_repeat %}
+        <div class="repeat-notice">
+            <p class="notice">Error: The canvas and/or one or more fields were found to be empty.
+                Please fill in the canvas and/or the missing fields then submit once again.
+            </p>
+        </div>
+    {% else%}
+    <div class="success-notice">
+        <p class="notice">Error: The canvas and/or one or more fields were found to be empty.
+            Please fill in the canvas and/or the missing fields then submit once again.
+        </p>
+    </div>
     <div class="container">
         <div class="user-input">
             <h3 class="title">Subject Input</h3>
@@ -27,7 +45,7 @@
             </div>
             <div class="input-wrapper">
                 <label for="digit" class="labels-input">Digit: </label>
-                <select name="digit" id="digit" class="subject-input" value="5">
+                <select name="digit" id="digit" class="subject-input">
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -39,6 +57,11 @@
                     <option value="8">8</option>
                     <option value="9">9</option>
                 </select>
+                <script>
+                    var digit = {{data.digit}};
+                    var sel = document.getElementById("digit");
+                    sel.selectedIndex = digit;
+                </script>
             </div>
             
         </div>

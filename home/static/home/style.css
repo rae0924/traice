@@ -32,7 +32,7 @@ nav ul li a{
 }
 .container{
     margin: 0 auto;
-    margin-top: 75px;
+    margin-top: 50px;
     background: #ffffff;
     max-width: 1000px;
     min-width: 900px;
@@ -126,4 +126,17 @@ nav ul li a{
     width: 100px;
     display: inline-block;
     padding: 10px 5px;
+}
+.notice{
+    color: #ffffff;
+    font-family: 'Gayathri', sans-serif;
+    padding: 10px;
+}
+.empty-field-error{
+    background: #ff0000;
+    height: fit-content;
+    width: 50%;
+    min-width: 300px;
+    border-radius: 20px;
+    margin: 0 auto;
 }

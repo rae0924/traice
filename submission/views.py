@@ -20,17 +20,26 @@ class SubmissionView(TemplateView):
         args = {
             'data': data,
             'has_empty_field': False,
-            'canvas_blank': False,
-            'repeat': False,
+            'is_repeat': False,
         }
 
+        with open('home/static/home/blank.json', 'r') as f:
+            blank = json.load(f) 
+
+        if data['dataurl'] == blank['blank_canvas']:
+            args['has_empty_field'] = True
+            return render(request, self.template_name, args)
+        
         if not data['first_name'] or not data['last_name'] or not data['email']:
             args['has_empty_field'] = True
             return render(request, self.template_name, args)
         
         for sample in Sample.objects.filter(is_sample=True).all():
             if data['email'] == sample.email & data['digit'] == sample.label:
-                args['repeat'] = True
+                args['is_repeat'] = True
+                image_path = sample.img_path[1:]
+                with open(image_path, 'wb') as f:
+                    f.write(a2b_base64(data['dataurl']))
                 return render(request, self.template_name, args)
 
         sample = Sample(
@@ -40,8 +49,9 @@ class SubmissionView(TemplateView):
             is_sample = True,
             label = data['digit']
         )
+
         sample.save()
-        image_data = a2b_base64(data)
+        image_data = a2b_base64(data['dataurl'])
         default_path = 'media/samples/'
         image_name = str(sample.pk) + '.png'
         image_path = os.path.join(default_path, image_name)
