@@ -132,8 +132,24 @@ nav ul li a{
     font-family: 'Gayathri', sans-serif;
     padding: 10px;
 }
-.empty-field-error{
+.error{
     background: #ff0000;
+    height: fit-content;
+    width: 50%;
+    min-width: 300px;
+    border-radius: 20px;
+    margin: 0 auto;
+}
+.replace-notice{
+    background: #d9d777;
+    height: fit-content;
+    width: 50%;
+    min-width: 300px;
+    border-radius: 20px;
+    margin: 0 auto;
+}
+.success-notice{
+    background: #77d986;
     height: fit-content;
     width: 50%;
     min-width: 300px;

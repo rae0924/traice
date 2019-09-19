@@ -17,7 +17,7 @@ function submit_sample(){
     const first_name = document.getElementById("first_name").value;
     const last_name = document.getElementById("last_name").value;
     const email = document.getElementById("email").value;
-    const digit = document.getElementById("digit").value;
+    const label = document.getElementById("labels").value;
     const form = document.querySelector(".post-form");
     const hiddenField = document.createElement('input');
     
@@ -31,7 +31,7 @@ function submit_sample(){
         "first_name": first_name,
         "last_name": last_name,
         "email": email,
-        "digit": digit
+        "label": label
     };
     
     data = JSON.stringify(data);

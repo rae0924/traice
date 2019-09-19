@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.conf import settings
-from submission.models import Sample
+from detector.models import UserTrial
 from binascii import a2b_base64
 import cv2
 import os
@@ -18,19 +18,19 @@ class DetectorView(TemplateView):
         dataURL = request.POST['data']
         _, data = dataURL.split(",", 1)
         binary_data = a2b_base64(data)
-        default_path = 'media/samples/'
-        sample = Sample()
-        sample.save()
-        img_name = str(sample.pk) + '.png'
+        default_path = 'media/random/'
+        rand = UserTrial()
+        rand.save()
+        img_name = 'random_' + str(rand.pk) + '.png'
         img_path = os.path.join(default_path, img_name)
-        sample.img_path = '/' + img_path
-        sample.save()
+        rand.img_path = '/' + img_path
+        rand.save()
         with open(img_path, 'wb') as f:
             f.write(binary_data)
         # image = cv2.imread(img_path, cv2.IMREAD_UNCHANGED)
         # trans_mask = image[:,:,3] == 0
         # image[trans_mask] = [255, 255, 255, 255]
-        args = {'sample': sample}
+        args = {'rand': rand}
         return render(request, 'detector/summary.html', args)
         
     

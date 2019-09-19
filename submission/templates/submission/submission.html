@@ -1,27 +1,32 @@
 {% extends "home/base.html" %}
 {% load static %}
 {% block content %}
-    {% if data.has_empty_field %}
-        <div class="empty-field-error">
+    {% if has_empty_field %}
+        <div class="error">
             <p class="notice">Error: The canvas and/or one or more fields were found to be empty.
-                Please fill in the canvas and/or the missing fields then submit once again.
+                Please refill in the canvas and/or the missing fields then submit once again.
             </p>
         </div>
-    {% if data.is_repeat %}
-        <div class="repeat-notice">
-            <p class="notice">Error: The canvas and/or one or more fields were found to be empty.
-                Please fill in the canvas and/or the missing fields then submit once again.
+    {% elif invalid_email %}
+        <div class="error">
+            <p class="notice">Error: Invalid email credentials. Please enter a valid email address.</p>
+        </div>
+    {% elif is_repeat %}
+        <div class="replace-notice">
+            <p class="notice">Notice: You have already submitted a sample of that chosen label. 
+                The older submission has been replaced by the recent submission.
             </p>
         </div>
-    {% else%}
-    <div class="success-notice">
-        <p class="notice">Error: The canvas and/or one or more fields were found to be empty.
-            Please fill in the canvas and/or the missing fields then submit once again.
-        </p>
-    </div>
+    {% elif success %}
+        <div class="success-notice">
+            <p class="notice">Success: Your sample submission was successfully recorded. I appreciate your 
+                contribution to the cause. It is recommended to submit samples for all available labels. 
+            </p>
+        </div>
+    {% endif %}
     <div class="container">
         <div class="user-input">
-            <h3 class="title">Subject Input</h3>
+            <h3 class="title">Sample Input</h3>
             <canvas class="canvas"></canvas>
             <div class="button-wrapper">
                 <button class="button" type="button" onclick="submit_sample()">Submit</button>
@@ -44,8 +49,8 @@
                 <input type="text" name="email" id="email" class="subject-input" value="{{data.email}}">
             </div>
             <div class="input-wrapper">
-                <label for="digit" class="labels-input">Digit: </label>
-                <select name="digit" id="digit" class="subject-input">
+                <label for="labels" class="labels-input">Label: </label>
+                <select name="labels" id="labels" class="subject-input">
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -58,9 +63,9 @@
                     <option value="9">9</option>
                 </select>
                 <script>
-                    var digit = {{data.digit}};
-                    var sel = document.getElementById("digit");
-                    sel.selectedIndex = digit;
+                    var label = {{data.label}};
+                    var sel = document.getElementById("labels");
+                    sel.selectedIndex = label;
                 </script>
             </div>
             
