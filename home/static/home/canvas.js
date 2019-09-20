@@ -45,9 +45,9 @@ function clear_canvas() {
     var imgData = context.createImageData(300, 300);
     var i;
     for (i = 0; i < imgData.data.length; i += 4) {
-    imgData.data[i+0] = 255;
-    imgData.data[i+1] = 255;
-    imgData.data[i+2] = 255;
+    imgData.data[i+0] = 25;
+    imgData.data[i+1] = 120;
+    imgData.data[i+2] = 180;
     imgData.data[i+3] = 255;
     }
     context.putImageData(imgData, 0, 0);
