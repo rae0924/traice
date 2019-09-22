@@ -234,7 +234,7 @@ nav ul li a:hover{
     color: var(--main-bg-color);
     padding: 5px 15px;
 }
-.about-text{
+.text{
     color: var(--main-bg-color);
     font-family: 'Gayathri', sans-serif;
     padding: 0 50px;
