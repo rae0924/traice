@@ -1,3 +1,4 @@
 /media/samples/**/*.png
 /media/random/**/*.png
+venv/
 **/*.pyc
