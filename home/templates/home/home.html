@@ -1,4 +1,22 @@
 {% extends "home/base.html" %}
+{% load static %}
 {% block content%}
-
+    <div class="home">
+        <div class="overview">
+            <div class="home-banner">
+                <img class="home-banner-image" src="{% static 'home/home-banner.png' %}" alt="">
+            </div>
+            <div class="updates-section">
+                <h3 class="title">Updates</h3>
+                <ul class="updates">
+                    <li>Detector is still under development; Waiting for more samples until I can implement an algorithm.</li>
+                    <li>Detector POST request is working, i.e., detector can handle submissions, although it will give no proper response.</li>
+                    <li>The submit section is fully functional; It can receive appropriate submissions.</li>
+                    <li>9-22-2019: Deployed and live on the Web.</li>
+                    <li>9-23-2019 — Present: Receiving sample submissions.</li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
 {% endblock content%}

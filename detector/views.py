@@ -27,9 +27,10 @@ class DetectorView(TemplateView):
         rand.save()
         with open(img_path, 'wb') as f:
             f.write(binary_data)
-        # image = cv2.imread(img_path, cv2.IMREAD_UNCHANGED)
-        # trans_mask = image[:,:,3] == 0
-        # image[trans_mask] = [255, 255, 255, 255]
+        image = cv2.imread(img_path, cv2.IMREAD_UNCHANGED)
+        trans_mask = image[:,:,3] == 0
+        image[trans_mask] = [180, 120, 25, 255]
+        cv2.imwrite(img_path, image)
         args = {'rand': rand}
         return render(request, 'detector/summary.html', args)
         

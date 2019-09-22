@@ -7,15 +7,19 @@ body {
 }
 .header{
     background: transparent;
-    min-width: 750px;
+    min-width: 950px;
     width: 100%;
     height: 100px;
 }
 nav{
-    float: right;
+    display: flex;
+    width: fit-content;
+    margin: auto;
 }
 nav ul{
     background-color: transparent;
+    vertical-align: middle;
+    margin: auto;
 }
 nav ul li{
     list-style: none;
@@ -24,7 +28,7 @@ nav ul li{
     border-width: 2px;
     border-color: var(--main-bg-color);
     border-radius: 20px;
-    margin: 0px 5px;
+    margin: auto 5px;
 }
 nav ul li a{
     display: inline-block;
@@ -102,6 +106,10 @@ nav ul li a:hover{
     display: inline-block;
     margin: 0 5px;
 }
+.button:hover{
+    transition-duration: 0.4s;
+    background-color: rgb(20, 100, 150);
+}
 .image-wrapper{
     border-radius: 20px;
     border: 2px solid var(--main-bg-color);
@@ -116,6 +124,7 @@ nav ul li a:hover{
 .sample-image{
     width: 300px;
     height: 300px;
+    border-radius: 20px;
 }
 .input-wrapper{
     display: flex;
@@ -145,7 +154,7 @@ nav ul li a:hover{
 .notice{
     color: #ffffff;
     font-family: 'Gayathri', sans-serif;
-    padding: 10px;
+    padding: 10px 15px;
 }
 .error{
     background: #ff0000;
@@ -170,4 +179,74 @@ nav ul li a:hover{
     min-width: 300px;
     border-radius: 20px;
     margin: 0 auto;
+}
+.icon-wrapper{
+    display: inline-block;
+    border-radius: 20px;
+}
+.icon-wrapper:hover{
+    background: var(--sec-bg-color);
+}
+.icon{
+    width: 250px;
+    height: 83px;
+}
+.home{
+    width: 50%;
+    height: 100%;
+    min-width: 1000px;
+    margin: 25px auto;
+}
+.overview{
+    display: flex;
+    align-items: center;
+}
+.home-banner{
+    border: 2px solid var(--main-bg-color);
+    width: 60%;
+    height: 300px;
+    display: inline-block;
+    margin: 0 25px;
+    background: var(--sec-bg-color);
+    border-radius: 20px;
+}
+.home-banner-image{
+    height: 175px;
+    width: 525px;
+    display: block;
+    margin: 50px auto;
+}
+.updates-section{
+    display: inline-block;
+    position: relative;
+    border: 2px solid var(--main-bg-color);
+    border-radius: 20px;
+    width: 30%;
+    margin: 0 25px;
+}
+.updates{
+    background-color: transparent;
+}
+.updates li{
+    list-style: circle;
+    font-family: 'Gayathri', sans-serif;
+    font-size: 14pt;
+    color: var(--main-bg-color);
+    padding: 5px 15px;
+}
+.about-text{
+    color: var(--main-bg-color);
+    font-family: 'Gayathri', sans-serif;
+    padding: 0 50px;
+    font-size: 16pt;
+    text-align: center;
+}
+.about-container{
+    margin: 0 auto;
+    margin-top: 50px;
+    background: transparent;
+    border-radius: 20px;
+    border: 2px solid var(--main-bg-color);
+    height: fit-content;
+    width: 40%;
 }
