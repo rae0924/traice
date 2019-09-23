@@ -3,6 +3,7 @@ from django.views.generic import TemplateView
 from django.conf import settings
 from detector.models import UserTrial
 from binascii import a2b_base64
+from django.conf import settings
 import cv2
 import os
 # Create your views here.
@@ -25,14 +26,20 @@ class DetectorView(TemplateView):
         img_path = os.path.join(default_path, img_name)
         rand.img_path = '/' + img_path
         rand.save()
-        with open(img_path, 'wb') as f:
-            f.write(binary_data)
-        image = cv2.imread(img_path, cv2.IMREAD_UNCHANGED)
-        trans_mask = image[:,:,3] == 0
-        image[trans_mask] = [180, 120, 25, 255]
-        cv2.imwrite(img_path, image)
+        if settings.DEBUG:
+            with open(img_path, 'wb') as f:
+                f.write(binary_data)
+            self.transform(img_path)
+        else:
+            full_path = os.path.join(settings.BASE_DIR, '/' + img_path)
+            with open(full_path, 'wb') as f:
+                f.write(binary_data)
+            self.transform(full_path)
         args = {'rand': rand}
         return render(request, 'detector/summary.html', args)
-        
     
-        
+    def transform(self, path):
+        image = cv2.imread(path, cv2.IMREAD_UNCHANGED)
+        trans_mask = image[:,:,3] == 0
+        image[trans_mask] = [180, 120, 25, 255]
+        cv2.imwrite(path, image)

@@ -30,7 +30,7 @@ DATA_UPLOAD_MAX_MEMORY_SIZE = None
 SECRET_KEY = config['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['18.221.117.115', 'localhost']
 
