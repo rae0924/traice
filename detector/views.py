@@ -26,15 +26,16 @@ class DetectorView(TemplateView):
         img_path = os.path.join(default_path, img_name)
         rand.img_path = '/' + img_path
         rand.save()
-        if settings.DEBUG:
-            with open(img_path, 'wb') as f:
-                f.write(binary_data)
-            self.transform(img_path)
-        else:
+        try:
             full_path = os.path.join(settings.BASE_DIR, '/' + img_path)
             with open(full_path, 'wb') as f:
                 f.write(binary_data)
             self.transform(full_path)
+        except:
+            with open(img_path, 'wb') as f:
+                f.write(binary_data)
+            self.transform(img_path)
+            
         args = {'rand': rand}
         return render(request, 'detector/summary.html', args)
     
