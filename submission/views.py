@@ -27,8 +27,12 @@ class SubmissionView(TemplateView):
             'success': True,
         }
 
-        with open('home/static/home/blank.json', 'r') as f:
-            blank = json.load(f) 
+        try:
+            with open('/static/home/blank.json', 'r') as f:
+                blank = json.load(f) 
+        except:
+            with open('/home/ubuntu/trAIce/static/home/blank.json', 'r') as f:
+                blank = json.load(f)
 
         if data['dataurl'] == blank['blank_canvas']:
             args['has_empty_field'] = True
@@ -63,14 +67,23 @@ class SubmissionView(TemplateView):
             email = data['email'],
             label = data['label']
         )
-
+        
         sample.save()
         image_data = a2b_base64(data['dataurl'])
-        default_path = 'media/samples/'
         image_name = 'sample_' + str(sample.pk) + '.png'
-        image_path = os.path.join(default_path, image_name)
-        sample.img_path = '/' + image_path 
-        with open(image_path, 'wb') as f:
-            f.write(image_data)
-        sample.save()
+        
+        try:
+            default_path = '/home/ubuntu/trAIce/media/samples/'
+            image_path = os.path.join(default_path, image_name)
+            sample.img_path = image_path
+            with open(image_path, 'wb') as f:
+                f.write(image_data)
+            sample.save()
+        except:
+            default_path = 'media/samples/'
+            image_path = os.path.join(default_path, image_name)
+            sample.img_path = '/' + image_path 
+            with open(image_path, 'wb') as f:
+                f.write(image_data)
+            sample.save()
         return render(request, self.template_name, args)
