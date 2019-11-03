@@ -2,3 +2,6 @@
 /media/random/**/*.png
 venv/
 **/*.pyc
+config.json
+db.sqlite3
+traice.conf

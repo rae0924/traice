@@ -1,1 +1,0 @@
-All samples here are numbered according to the assigned pk of the django model "Sample"

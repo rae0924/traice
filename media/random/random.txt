@@ -1,1 +1,0 @@
-All random detector runs here are numbered according to the assigned pk of the django model "UserTrial"

@@ -19,34 +19,5 @@ class DetectorView(TemplateView):
         dataURL = request.POST['data']
         _, data = dataURL.split(",", 1)
         binary_data = a2b_base64(data)
-
-        try:
-            default_path = '/home/ubuntu/trAIce/media/random/'
-            rand = UserTrial()
-            rand.save()
-            img_name = 'random_' + str(rand.pk) + '.png'
-            img_path = os.path.join(default_path, img_name)
-            rand.img_path = img_path
-            with open(img_path, 'wb') as f:
-                f.write(binary_data)
-            self.transform(img_path)
-        except:
-            default_path = 'media/random/'
-            rand = UserTrial()
-            rand.save()
-            img_name = 'random_' + str(rand.pk) + '.png'
-            img_path = os.path.join(default_path, img_name)
-            rand.img_path = '/' + img_path
-            rand.save()
-            with open(img_path, 'wb') as f:
-                f.write(binary_data)
-            self.transform(img_path)
-            
-        args = {'rand': rand}
-        return render(request, 'detector/summary.html', args)
+        return render(request, 'detector/detector.html')
     
-    def transform(self, path):
-        image = cv2.imread(path, cv2.IMREAD_UNCHANGED)
-        trans_mask = image[:,:,3] == 0
-        image[trans_mask] = [180, 120, 25, 255]
-        cv2.imwrite(path, image)
