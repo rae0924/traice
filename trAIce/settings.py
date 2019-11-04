@@ -12,11 +12,14 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os, json, socket
 
-with open("config.json") as f:
-    config = json.load(f)
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+config_path = os.path.join(BASE_DIR, "config.json")
+
+with open(config_path) as f:
+    config = json.load(f)
+
 
 DATA_UPLOAD_MAX_MEMORY_SIZE = None
 # Quick-start development settings - unsuitable for production
@@ -27,7 +30,7 @@ SECRET_KEY = config['PROJECT_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['localhost', 'traice.xyz']
+ALLOWED_HOSTS = ['localhost', 'traice.xyz', 'www.traice.xyz']
 LOCAL_IP = socket.gethostbyname(socket.gethostname())
 ALLOWED_HOSTS.append(LOCAL_IP)
 
