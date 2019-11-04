@@ -15,9 +15,9 @@ import os, json, socket
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-config_path = os.path.join(BASE_DIR, "config.json")
+CONFIG_PATH = os.path.join(BASE_DIR, "config.json")
 
-with open(config_path) as f:
+with open(CONFIG_PATH) as f:
     config = json.load(f)
 
 
