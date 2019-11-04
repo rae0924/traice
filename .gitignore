@@ -1,6 +1,7 @@
 /media/samples/**/*.png
 /media/random/**/*.png
 venv/
+/media
 **/*.pyc
 config.json
 db.sqlite3

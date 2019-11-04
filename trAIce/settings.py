@@ -27,7 +27,7 @@ SECRET_KEY = config['PROJECT_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost', 'traice.xyz']
 LOCAL_IP = socket.gethostbyname(socket.gethostname())
 ALLOWED_HOSTS.append(LOCAL_IP)
 
